@@ -4,12 +4,10 @@
 
 {% block body %}
 
-
-
     {% if produit is not defined %}
-    <h1 class="text-center my-3">Ajouter un produit</h1>
+        <h1 class="text-center my-3">Ajouter un produit</h1>
     {% else %}
-    <h1 class="text-center my-3">Modifier {{ produit.title }}</h1>
+        <h1 class="text-center my-3">Modifier {{ produit.title }}</h1>
     {% endif %}
 
     <div class="row">
