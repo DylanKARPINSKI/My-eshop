@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Accueil
+{% endblock %}
+
+
+{% block body %}
+
+	{% include 'include/_flashes.html.twig' %}
+
+
+	{% if app.user %}
+	<h1 class="text-center my-4">
+		Bienvenue  sur notre boutique en ligne,  {{ app.user.firstname }} :) 
+	</h1>
+	{% else %}
+
+<h1 class="text-center my-4">
+		Bienvenue  sur notre boutique en ligne :) 
+	</h1>
+
+	{% endif %}
+
+{% endblock %}
+
+
+
+	
