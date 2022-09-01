@@ -14,10 +14,10 @@ class DefaultController extends AbstractController
     #[Route('/', name: 'default_home', methods: ['GET'])]
     public function home(EntityManagerInterface $entityManager):Response
     {
-        $users= $entityManager->getRepository(User::class)->findAll();
+        $produits= $entityManager->getRepository(User::class)->findBy(['deletedAt' => null]);
 
         return $this->render('default/home.html.twig', [
-            'users'=> $users
+            'produits'=> $produits
         ]);
     }
 }
