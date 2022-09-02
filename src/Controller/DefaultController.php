@@ -2,22 +2,30 @@
 
 namespace App\Controller;
 
-
-use App\Entity\User;
+use App\Entity\Produit;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DefaultController extends AbstractController
 {
-    #[Route('/', name: 'default_home', methods: ['GET'])]
-    public function home(EntityManagerInterface $entityManager):Response
+
+    #[Route('/', name: 'index', methods: ['GET'])]
+    public function index(): RedirectResponse
     {
-        $users= $entityManager->getRepository(User::class)->findAll();
+        return $this->redirectToRoute('default_home');
+    }
+
+
+    #[Route('/home', name: 'default_home', methods: ['GET'])]
+    public function home(EntityManagerInterface $entityManager): Response
+    {
+        $produits = $entityManager->getRepository(Produit::class)->findBy(['deletedAt' => null]);
 
         return $this->render('default/home.html.twig', [
-            'users'=> $users
+            'produits' => $produits
         ]);
     }
 }
