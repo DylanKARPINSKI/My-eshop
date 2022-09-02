@@ -21,3 +21,7 @@
 
 
 /.vscode/*
+
+/public/build/
+/public/uploads/
+/node_modules/
