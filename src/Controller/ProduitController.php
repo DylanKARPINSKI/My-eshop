@@ -50,7 +50,6 @@ class ProduitController extends AbstractController
             ->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-
             $produit->setCreatedAt(new DateTime);
             $produit->setUpdatedAt(new DateTime);
 
