@@ -157,5 +157,4 @@ class ProduitController extends AbstractController
 //            return $this->redirectToRoute('create_produit');
         }
     }// end class handleFile()
-
 }// end class
